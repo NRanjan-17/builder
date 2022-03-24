@@ -1,13 +1,23 @@
 #!/bin/bash
 
+# Source Configs
+source $CONFIG
+
 # A Function to Send Posts to Telegram
 telegram_message() {
-	curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" -d chat_id="${TG_CHAT_ID}" \
+	curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+	-d chat_id="${TG_CHAT_ID}" \
+	-d parse_mode="HTML" \
 	-d text="$1"
 }
 
 # Change to the Source Directry
 cd $SYNC_PATH
+
+# Sync Branch (will be used to fix legacy build system errors)
+if [ -z "$SYNC_BRANCH" ]; then
+    export SYNC_BRANCH=$(echo ${FOX_BRANCH} | cut -d_ -f2)
+fi
 
 # Set-up ccache
 if [ -z "$CCACHE_SIZE" ]; then
@@ -22,16 +32,22 @@ if [ -f frameworks/base/core/xsd/vts/Android.mk ]; then
 fi
 
 # Send the Telegram Message
-telegram_message \
+
+echo -e \
 "
 🦊 OrangeFox Recovery CI
 
 ✔️ The Build has been Triggered!
 
-📱 Device: ${DEVICE}
-🌲 Device Tree: ${DT_LINK}
-🖥 Build System: ${FOX_BRANCH}
-"
+📱 Device: "${DEVICE}"
+🖥 Build System: "${FOX_BRANCH}"
+🌲 Logs: <a href=\"https://cirrus-ci.com/build/${CIRRUS_BUILD_ID}\">Here</a>
+" > tg.html
+
+TG_TEXT=$(< tg.html)
+
+telegram_message "${TG_TEXT}"
+echo " "
 
 # Prepare the Build Environment
 source build/envsetup.sh
@@ -43,6 +59,20 @@ $EXTRA_CMD
 export ALLOW_MISSING_DEPENDENCIES=true
 export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
 export LC_ALL="C"
+
+# Default Build Type
+if [ -z "$FOX_BUILD_TYPE" ]; then
+    export FOX_BUILD_TYPE="Unofficial-CI"
+fi
+
+# Default Maintainer's Name
+[ -z "$OF_MAINTAINER" ] && export OF_MAINTAINER="Unknown"
+
+# Legacy Build Systems
+if [ $(echo $SYNC_BRANCH | cut -d. -f1) -le 6 ]; then
+    export OF_DISABLE_KEYMASTER2=1 # Disable Keymaster2
+    export OF_LEGACY_SHAR512=1 # Fix Compilation on Legacy Build Systems
+fi
 
 # lunch the target
 if [ "$FOX_BRANCH" = "fox_11.0" ]; then
