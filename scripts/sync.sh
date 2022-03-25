@@ -27,7 +27,7 @@ fi
 ./orangefox_sync.sh --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync OrangeFox Sources!" && exit 1; }
 
 # Install libcrypt
-curl libcrypt-dev
+sudo apt-get install libcrypt-dev
 
 # Change to the Source Directory
 cd $SYNC_PATH
