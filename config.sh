@@ -2,10 +2,10 @@
 
 # Device
 export FOX_BRANCH="fox_11.0"
-export DT_LINK="https://github.com/Alone0316/recovery_xiaomi_mido.git"
+export DT_LINK="https://github.com/Alone0316/recovery_samsung_a52sxq.git"
 
-export DEVICE="mido"
-export OEM="xiaomi"
+export DEVICE="a52sxq"
+export OEM="samsung"
 export TARGET="recoveryimage"
 
 export OUTPUT="OrangeFox*.zip"
