@@ -3,10 +3,10 @@ env:
     FOX_SYNC: https://gitlab.com/OrangeFox/sync.git
 
     # Device
-    FOX_BRANCH: 9.0
-    DT_LINK: https://github.com/Alone0316/recovery_xiaomi_mido.git
-    DEVICE: mido
-    OEM: xiaomi
+    FOX_BRANCH: 11.0
+    DT_LINK: https://github.com/Alone0316/recovery_samsung_a52sxq.git
+    DEVICE: a52sxq
+    OEM: samsung
     TARGET: recoveryimage
 
     DT_PATH: device/$OEM/$DEVICE
