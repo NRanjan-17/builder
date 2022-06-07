@@ -4,7 +4,7 @@
 source $CONFIG
 
 # Change to the Home Directory
-cd ~
+cd ~/
 
 # A Function to Send Posts to Telegram
 telegram_message() {
