@@ -3,6 +3,7 @@
 # Device
 export FOX_BRANCH="fox_11.0"
 export DT_LINK="https://github.com/Alone0316/recovery_samsung_a52sxq.git"
+export KERNEL_SOURCE="https://github.com/Alone0316/kernel_samsung_a52sxq.git"
 
 export DEVICE="a52sxq"
 export OEM="samsung"
