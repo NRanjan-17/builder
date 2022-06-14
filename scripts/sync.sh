@@ -52,6 +52,10 @@ if [ "$FOX_BRANCH" = "fox_9.0" ]; then
 git clone --depth=1 https://github.com/TeamWin/android_vendor_qcom_opensource_commonsys.git -b android-9.0 vendor/qcom/opensource/commonsys || { echo "WARNING: Failed to Clone the Commonsys Repo!"; }
 fi
 
+# Clone gcc
+git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 || { echo "WARNING: Failed to clone gcc repo!";}
+fi
+
 # Clone Trees
 git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!" && exit 1; }
 
