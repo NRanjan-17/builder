@@ -53,8 +53,8 @@ git clone --depth=1 https://github.com/TeamWin/android_vendor_qcom_opensource_co
 fi
 
 # Clone gcc
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git prebuilts/gcc/linux-x86/arm/arm-eabi || { echo "ERROR: Failed to clone gcc-arm repo!" && exit 1; }
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git prebuilts/gcc/linux-x86/aarch64/aarch64-elf || { echo "ERROR: Failed to clone gcc-arm64 repo!" && exit 1; }
+git clone https://github.com/mvaisakh/gcc-arm.git prebuilts/gcc/linux-x86/arm/arm-eabi || { echo "ERROR: Failed to clone gcc-arm repo!" && exit 1; }
+git clone https://github.com/mvaisakh/gcc-arm64.git prebuilts/gcc/linux-x86/aarch64/aarch64-elf || { echo "ERROR: Failed to clone gcc-arm64 repo!" && exit 1; }
 
 # Clone Trees
 git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!" && exit 1; }
