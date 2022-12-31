@@ -18,13 +18,8 @@ telegram_message() {
 # Clone the Sync Repo
 repo init $TW_SYNC -b $TW_BRANCH
 
-# Setup the Sync Branch
-if [ -z "$SYNC_BRANCH" ]; then
-    export SYNC_BRANCH=$(echo ${TW_BRANCH} | cut -d_ -f2)
-fi
-
 # Sync the Sources
-repo sync --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
+repo sync --branch $TW_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
 
 # Install libcrypt
 sudo apt-get install libcrypt-dev
