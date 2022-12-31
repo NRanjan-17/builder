@@ -16,7 +16,7 @@ telegram_message() {
 }
 
 # Clone the Sync Repo
-repo init $TW_SYNC $SYNC_BRANCH $SYNC_PATH
+repo init $TW_SYNC -b $SYNC_BRANCH $SYNC_PATH
 
 # Setup the Sync Branch
 if [ -z "$SYNC_BRANCH" ]; then
