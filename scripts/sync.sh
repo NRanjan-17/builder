@@ -28,8 +28,8 @@ sudo apt-get install libcrypt-dev
 cd $SYNC_PATH
 
 # Clone gcc
-git clone https://github.com/mvaisakh/gcc-arm.git prebuilts/gcc/linux-x86/arm/arm-eabi || { echo "ERROR: Failed to clone gcc-arm repo!" && exit 1; }
-git clone https://github.com/mvaisakh/gcc-arm64.git prebuilts/gcc/linux-x86/aarch64/aarch64-elf || { echo "ERROR: Failed to clone gcc-arm64 repo!" && exit 1; }
+git clone https://github.com/mvaisakh/gcc-arm.git prebuilts/gcc/linux-x86/arm/arm-eabi --depth=1 || { echo "ERROR: Failed to clone gcc-arm repo!" && exit 1; }
+git clone https://github.com/mvaisakh/gcc-arm64.git prebuilts/gcc/linux-x86/aarch64/aarch64-elf --depth=1 || { echo "ERROR: Failed to clone gcc-arm64 repo!" && exit 1; }
 
 # Clone Trees
 git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!" && exit 1; }
