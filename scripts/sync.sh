@@ -19,7 +19,7 @@ telegram_message() {
 repo init $TW_SYNC -b $TW_BRANCH
 
 # Sync the Sources
-repo sync --branch $TW_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
+repo sync $TW_BRANCH $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
 
 # Install libcrypt
 sudo apt-get install libcrypt-dev
