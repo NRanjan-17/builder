@@ -16,7 +16,7 @@ telegram_message() {
 }
 
 # Clone the Sync Repo
-repo init https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp12.1
+repo init https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
 # Sync the Sources
 repo sync || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
