@@ -24,7 +24,7 @@ if [ -z "$SYNC_BRANCH" ]; then
 fi
 
 # Sync the Sources
-repo sync --depth=1 --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
+repo sync --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
 
 # Install libcrypt
 sudo apt-get install libcrypt-dev
