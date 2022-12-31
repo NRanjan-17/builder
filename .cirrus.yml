@@ -1,9 +1,5 @@
 env:
-    # OrangeFox Sync Repository
-    TW_SYNC: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
-
     # Device
-    TW_BRANCH: twrp-12.1
     DT_LINK: https://github.com/realme-mt6877/android_device_realme_rmx3392_twrp.git
     DEVICE: RMX3392
     OEM: realme
@@ -13,8 +9,6 @@ env:
     OUTPUT: TWRP*.zip
 
     # Not Recommended to Change
-    SYNC_BRANCH: ${TW_BRANCH}
-    SYNC_PATH: $HOME/work # Full (absolute) path. Use "$HOME" instead of "~".
     USE_CCACHE: 1
     CCACHE_SIZE: 50G
     CCACHE_DIR: $HOME/work/.ccache
