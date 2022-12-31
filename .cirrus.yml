@@ -1,22 +1,19 @@
 env:
     # OrangeFox Sync Repository
-    FOX_SYNC: https://gitlab.com/OrangeFox/sync.git
+    TW_SYNC: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
 
     # Device
-    FOX_BRANCH: 11.0
-    DT_LINK: https://github.com/Alone0316/recovery_samsung_a52sxq.git
-    DEVICE: a52sxq
-    OEM: samsung
+    TW_BRANCH: twrp-12.1
+    DT_LINK: https://github.com/realme-mt6877/android_device_realme_rmx3392_twrp.git
+    DEVICE: RMX3392
+    OEM: realme
     TARGET: recoveryimage
 
     DT_PATH: device/$OEM/$DEVICE
-    OUTPUT: OrangeFox*.zip
-
-    # Extra Command
-    EXTRA_CMD: git clone https://github.com/OrangeFoxRecovery/Avatar.git misc
+    OUTPUT: TWRP*.zip
 
     # Not Recommended to Change
-    SYNC_BRANCH: ${FOX_BRANCH}
+    SYNC_BRANCH: ${TW_BRANCH}
     SYNC_PATH: $HOME/work # Full (absolute) path. Use "$HOME" instead of "~".
     USE_CCACHE: 1
     CCACHE_SIZE: 50G
@@ -40,15 +37,15 @@ task:
   name: "Recovery Build"
   timeout_in: 120m
   container:
-      image: ghcr.io/sushrut1101/docker:arch
+      image: ghcr.io/alone03161/docker:arch
       cpu: 8
       memory: 20G
 
   Checks_script:
-      - curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/checks.sh | bash
+      - curl -sL https://raw.githubusercontent.com/Alone0316/twrp-builder/main/scripts/checks.sh | bash
 
   Sync_script:
-      - curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/sync.sh | bash
+      - curl -sL https://raw.githubusercontent.com/Alone0316/twrp-builder/main/scripts/sync.sh | bash
       - (bash -c "$command" | tee sync.txt) || true
       - a=$(grep 'Cannot remove project' sync.txt || true)
       - b=$(grep "^fatal: remove-project element specifies non-existent project" sync.txt || true)
@@ -65,8 +62,8 @@ task:
       - rm -rf sync.txt
 
   Build_script:
-      - curl -sL https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/build.sh | bash
+      - curl -sL https://raw.githubusercontent.com/Alone0316/twrp-builder/main/scripts/build.sh | bash
 
   Upload_script:
       - export TIMEOUT=43200 # Link timeout (in minutes)
-      - curl https://raw.githubusercontent.com/OrangeFoxRecovery/OrangeFox-CI/fox/scripts/upload.sh | bash
+      - curl https://raw.githubusercontent.com/Alone0316/twrp-builder/main/scripts/upload.sh | bash

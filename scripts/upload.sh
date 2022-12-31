@@ -55,12 +55,12 @@ DATE_S=$(date +"%T")
 # Send the Message on Telegram
 echo -e \
 "
-🦊 OrangeFox Recovery CI
+TeamWin Recovery Project
 
 ✅ Build Completed Successfully!
 
 📱 Device: "${DEVICE}"
-🖥 Build System: "${FOX_BRANCH}"
+🖥 Build System: "${TW_BRANCH}"
 ⬇️ Download Link: <a href=\"${DL_LINK}\">Here</a>
 📅 Date: "$(date +%d\ %B\ %Y)"
 ⏱ Time: "$(date +%T)"
