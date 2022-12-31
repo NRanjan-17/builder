@@ -16,10 +16,10 @@ telegram_message() {
 }
 
 # Clone the Sync Repo
-repo init $TW_SYNC -b $TW_BRANCH
+repo init https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp12.1
 
 # Sync the Sources
-repo sync $TW_BRANCH $SYNC_PATH || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
+repo sync || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
 
 # Install libcrypt
 sudo apt-get install libcrypt-dev
