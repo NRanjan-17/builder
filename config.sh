@@ -5,8 +5,8 @@ export TW_BRANCH="twrp-12.1"
 export DT_LINK="https://github.com/xiaomi-mt6877/device_xiaomi_ruby_twrp"
 export KERNEL_SOURCE=""
 
-export DEVICE="RMX3392"
-export OEM="realme"
+export DEVICE="ruby"
+export OEM="xiaomi"
 
 # Build Target
 ## "recoveryimage" - for A-Only Devices without using Vendor Boot
