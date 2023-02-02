@@ -2,7 +2,7 @@
 
 # Device
 export TW_BRANCH="twrp-12.1"
-export DT_LINK="https://github.com/realme-mt6877/android_device_realme_rmx3392_twrp"
+export DT_LINK="https://github.com/xiaomi-mt6877/device_xiaomi_ruby_twrp"
 export KERNEL_SOURCE=""
 
 export DEVICE="RMX3392"
@@ -13,7 +13,7 @@ export OEM="realme"
 ## "bootimage" - for A/B devices without recovery partition (and without vendor boot)
 ## "vendorbootimage" - for devices Using vendor boot for the recovery ramdisk (Usually for devices shipped with Android 12 or higher)
 
-export TARGET="recoveryimage"
+export TARGET="bootimage"
 
 export OUTPUT="TWRP*.zip"
 
