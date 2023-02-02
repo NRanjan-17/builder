@@ -6,7 +6,7 @@ env:
     TARGET: bootimage
 
     DT_PATH: device/$OEM/$DEVICE
-    OUTPUT: TWRP*.zip
+    OUTPUT: TWRP*.img
 
     # Not Recommended to Change
     USE_CCACHE: 1
