@@ -58,11 +58,7 @@ export LC_ALL="C"
 BRANCH_INT=$(echo $SYNC_BRANCH | cut -d. -f1)
 
 # lunch the target
-if [ "$BRANCH_INT" -ge 11 ]; then
-    lunch twrp_${DEVICE}-eng || { echo "ERROR: Failed to lunch the target!" && exit 1; }
-else
-    lunch omni_${DEVICE}-eng || { echo "ERROR: Failed to lunch the target!" && exit 1; }
-fi
+lunch twrp_ruby-eng
 
 # Build the Code
 if [ -z "$J_VAL" ]; then
