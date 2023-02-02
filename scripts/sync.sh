@@ -15,6 +15,9 @@ telegram_message() {
 	-d text="$1"
 }
 
+# Change to the Source Directory
+cd $SYNC_PATH
+
 # Clone the Sync Repo
 repo init https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
@@ -23,9 +26,6 @@ repo sync || { echo "ERROR: Failed to Sync TWRP Sources!" && exit 1; }
 
 # Install libcrypt
 sudo apt-get install libcrypt-dev
-
-# Change to the Source Directory
-cd $SYNC_PATH
 
 # Clone gcc
 git clone https://github.com/mvaisakh/gcc-arm.git prebuilts/gcc/linux-x86/arm/arm-eabi --depth=1 || { echo "ERROR: Failed to clone gcc-arm repo!" && exit 1; }
