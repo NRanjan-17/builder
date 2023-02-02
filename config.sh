@@ -15,7 +15,7 @@ export OEM="xiaomi"
 
 export TARGET="bootimage"
 
-export OUTPUT="TWRP*.zip"
+export OUTPUT="boot.img"
 
 # Kernel Source
 # Uncomment the next line if you want to clone a kernel source.
