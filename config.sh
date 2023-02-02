@@ -23,10 +23,10 @@ export OUTPUT="TWRP*.zip"
 #export PLATFORM="sm6150" # Leave it commented if you want to clone the kernel to kernel/$OEM/$DEVICE
 
 # Not Recommended to Change
-export SYNC_PATH="$HOME/work" # Full (absolute) path.
+export SYNC_PATH="$HOME" # Full (absolute) path.
 export USE_CCACHE=1
 export CCACHE_SIZE="50G"
-export CCACHE_DIR="$HOME/work/.ccache"
+export CCACHE_DIR="$HOME/.ccache"
 export J_VAL=16
 
 if [ ! -z "$PLATFORM" ]; then
