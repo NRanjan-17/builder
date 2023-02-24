@@ -1,12 +1,12 @@
 env:
     # Device
-    DT_LINK: https://github.com/xiaomi-mt6877/device_xiaomi_ruby_twrp
-    DEVICE: ruby
+    DT_LINK: https://github.com/Alone0316/device_mido_twrp.git
+    DEVICE: mido
     OEM: xiaomi
-    TARGET: bootimage
+    TARGET: recoveryimage
 
     DT_PATH: device/$OEM/$DEVICE
-    OUTPUT: boot.img
+    OUTPUT: recovery.img
 
     # Not Recommended to Change
     USE_CCACHE: 1

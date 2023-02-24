@@ -2,10 +2,10 @@
 
 # Device
 export TW_BRANCH="twrp-12.1"
-export DT_LINK="https://github.com/xiaomi-mt6877/device_xiaomi_ruby_twrp"
+export DT_LINK="https://github.com/Alone0316/device_mido_twrp.git"
 export KERNEL_SOURCE=""
 
-export DEVICE="ruby"
+export DEVICE="mido"
 export OEM="xiaomi"
 
 # Build Target
@@ -13,9 +13,9 @@ export OEM="xiaomi"
 ## "bootimage" - for A/B devices without recovery partition (and without vendor boot)
 ## "vendorbootimage" - for devices Using vendor boot for the recovery ramdisk (Usually for devices shipped with Android 12 or higher)
 
-export TARGET="bootimage"
+export TARGET="recoveryimage"
 
-export OUTPUT="boot.img"
+export OUTPUT="recovery.img"
 
 # Kernel Source
 # Uncomment the next line if you want to clone a kernel source.
