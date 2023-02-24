@@ -58,7 +58,7 @@ export LC_ALL="C"
 BRANCH_INT=$(echo $SYNC_BRANCH | cut -d. -f1)
 
 # lunch the target
-lunch twrp_ruby-eng
+lunch twrp_mido-eng
 
 # Build the Code
 if [ -z "$J_VAL" ]; then
