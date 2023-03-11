@@ -2,7 +2,7 @@
 
 # Device
 export TW_BRANCH="twrp-12.1"
-export DT_LINK="https://github.com/Alone0316/device_mido_twrp.git"
+export DT_LINK="https://github.com/NRanjan-17/device_mido_twrp.git -b android-12.1-retrofit"
 export KERNEL_SOURCE=""
 
 export DEVICE="mido"
